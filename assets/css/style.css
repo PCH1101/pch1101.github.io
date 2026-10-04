@@ -619,14 +619,25 @@ body {
         padding: 4px 6px;
     }
 
-    /* Social: 6 icons evenly distributed across 3 columns with spacious breathing room */
+    .item-2 .social img {
+        width: 52px;
+        height: 52px;
+    }
+
+    /* Social: 6 icons enlarged to fill space boldly without feeling sparse */
     .item-3 .list-item-2 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
         align-items: center;
-        gap: 20px 16px;
-        padding: 8px 12px;
+        gap: 16px 12px;
+        padding: 6px 8px;
+    }
+
+    .item-3 .social img {
+        width: 66px;
+        height: 66px;
+        margin: 2px;
     }
 }
 
@@ -673,8 +684,16 @@ body {
 
     .social img {
         margin: 1px;
-        width: 46px;
-        height: 46px;
+    }
+
+    .item-2 .social img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .item-3 .social img {
+        width: 58px;
+        height: 58px;
     }
 
     .item-2 .list-item-2 {
@@ -683,8 +702,8 @@ body {
     }
 
     .item-3 .list-item-2 {
-        gap: 16px 10px;
-        padding: 4px 6px;
+        gap: 14px 8px;
+        padding: 4px 4px;
     }
 }
 
