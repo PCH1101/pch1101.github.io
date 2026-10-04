@@ -106,6 +106,10 @@ body {
     animation: rotateAvatarRing 3.5s linear infinite;
 }
 
+.avatar-box picture {
+    display: contents;
+}
+
 .avatar-box .image {
     position: relative;
     width: 152px;
@@ -195,7 +199,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px 22px;
 }
 
 .social {
@@ -605,20 +609,24 @@ body {
         height: 52px;
     }
 
-    /* Contact: 4 icons in a neat single row */
+    /* Contact: 4 icons in a neat single row with even distribution */
     .item-2 .list-item-2 {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
         flex-wrap: nowrap;
         gap: 12px;
+        padding: 4px 6px;
     }
 
-    /* Social: 6 icons in a symmetrical 3x2 grid */
+    /* Social: 6 icons evenly distributed across 3 columns with spacious breathing room */
     .item-3 .list-item-2 {
         display: grid;
-        grid-template-columns: repeat(3, auto);
-        justify-content: center;
-        gap: 12px 14px;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+        gap: 20px 16px;
+        padding: 8px 12px;
     }
 }
 
@@ -671,10 +679,12 @@ body {
 
     .item-2 .list-item-2 {
         gap: 8px;
+        padding: 2px 4px;
     }
 
     .item-3 .list-item-2 {
-        gap: 10px 10px;
+        gap: 16px 10px;
+        padding: 4px 6px;
     }
 }
 
