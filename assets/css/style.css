@@ -214,67 +214,167 @@ body {
 }
 
 /* Individual Glowing Effects for Each Icon */
-/* 1. Phone - Cyan Blue Glow */
+/* 1. Phone - Cyan Blue Wobble & Incoming Call Glow */
 .social.phone img {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(14, 165, 233, 0.35);
+    animation: phoneAmbient 4s ease-in-out infinite;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
-.social.phone img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(14, 165, 233, 0.9);
+.social.phone:hover img {
+    animation: phoneRing 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75), 0 0 32px rgba(14, 165, 233, 1), 0 0 55px rgba(6, 182, 212, 0.6);
 }
 
-/* 2. Mail (Gmail) - Crimson Red Glow */
+@keyframes phoneAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(14, 165, 233, 0.3); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 22px rgba(14, 165, 233, 0.6); }
+}
+
+@keyframes phoneRing {
+    0%, 100% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    15% { transform: translateY(-7px) scale(1.22) rotate(-14deg); }
+    30% { transform: translateY(-7px) scale(1.22) rotate(14deg); }
+    45% { transform: translateY(-7px) scale(1.22) rotate(-10deg); }
+    60% { transform: translateY(-7px) scale(1.22) rotate(10deg); }
+    75% { transform: translateY(-6px) scale(1.2) rotate(-4deg); }
+}
+
+/* 2. Mail (Gmail) - Crimson Bounce & Notification Heartbeat */
 .social.mail img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(239, 68, 68, 0.35);
+    animation: mailAmbient 3.8s ease-in-out infinite;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
-.social.mail img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(239, 68, 68, 0.95);
+.social.mail:hover img {
+    animation: mailHeartbeat 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75), 0 0 34px rgba(239, 68, 68, 1), 0 0 60px rgba(244, 63, 94, 0.65);
 }
 
-/* 3. CV - Teal / Aqua Glow */
+@keyframes mailAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(239, 68, 68, 0.3); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 22px rgba(239, 68, 68, 0.6); }
+}
+
+@keyframes mailHeartbeat {
+    0% { transform: translateY(-5px) scale(1.18); }
+    25% { transform: translateY(-9px) scale(1.24); }
+    50% { transform: translateY(-6px) scale(1.17); }
+    75% { transform: translateY(-8px) scale(1.22); }
+    100% { transform: translateY(-5px) scale(1.18); }
+}
+
+/* 3. CV - Teal Floating Inspect & Hologram Pulse */
 .social.cv img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(6, 182, 212, 0.35);
+    animation: cvAmbient 4.2s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
-.social.cv img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(6, 182, 212, 0.9);
+.social.cv:hover img {
+    animation: cvFloat 1.4s ease-in-out infinite alternate;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75), 0 0 32px rgba(6, 182, 212, 1), 0 0 55px rgba(20, 184, 166, 0.6);
 }
 
-/* 4. Achieve - Purple Violet Glow */
+@keyframes cvAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(6, 182, 212, 0.3); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 22px rgba(6, 182, 212, 0.6); }
+}
+
+@keyframes cvFloat {
+    0% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    50% { transform: translateY(-9px) scale(1.22) rotate(-6deg); }
+    100% { transform: translateY(-6px) scale(1.2) rotate(4deg); }
+}
+
+/* 4. Achieve - Violet Trophy Shimmer & Victory Sway */
 .social.achieve img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(139, 92, 246, 0.35);
+    animation: achieveAmbient 3.6s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
-.social.achieve img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.95);
+.social.achieve:hover img {
+    animation: achieveVictory 1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75), 0 0 35px rgba(139, 92, 246, 1), 0 0 60px rgba(245, 158, 11, 0.5);
 }
 
-/* 5. GitHub - Silver / Electric White Glow */
+@keyframes achieveAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(139, 92, 246, 0.3); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 24px rgba(139, 92, 246, 0.65); }
+}
+
+@keyframes achieveVictory {
+    0%, 100% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    25% { transform: translateY(-8px) scale(1.22) rotate(8deg); }
+    75% { transform: translateY(-8px) scale(1.22) rotate(-8deg); }
+}
+
+/* 5. GitHub - Cosmic White Swell & Octocat Sway */
 .social.github img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(255, 255, 255, 0.3);
+    animation: githubAmbient 4.5s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
-.social.github img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 255, 255, 0.9);
+.social.github:hover img {
+    animation: githubNod 1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.95), 0 0 60px rgba(148, 163, 184, 0.7);
 }
 
-/* 6. Facebook - Royal Blue Glow */
+@keyframes githubAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(255, 255, 255, 0.25); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 22px rgba(255, 255, 255, 0.55); }
+}
+
+@keyframes githubNod {
+    0%, 100% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    30% { transform: translateY(-8px) scale(1.22) rotate(8deg); }
+    70% { transform: translateY(-7px) scale(1.2) rotate(-8deg); }
+}
+
+/* 6. Facebook - Royal Blue Wave & Thumbs-Up Pulse */
 .social.facebook img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(24, 119, 242, 0.35);
+    animation: fbAmbient 4s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
-.social.facebook img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 30px rgba(24, 119, 242, 0.95);
+.social.facebook:hover img {
+    animation: facebookWave 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75), 0 0 35px rgba(24, 119, 242, 1), 0 0 60px rgba(96, 165, 250, 0.6);
 }
 
-/* 7. Instagram - Sunset Magenta / Neon Pink Glow */
+@keyframes fbAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(24, 119, 242, 0.3); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 22px rgba(24, 119, 242, 0.6); }
+}
+
+@keyframes facebookWave {
+    0%, 100% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    35% { transform: translateY(-8px) scale(1.22) rotate(10deg); }
+    70% { transform: translateY(-6px) scale(1.2) rotate(-6deg); }
+}
+
+/* 7. Instagram - Sunset Magenta Flash & Story Spin */
 .social.instagram img {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 18px rgba(225, 48, 108, 0.35);
+    animation: instaAmbient 3.4s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
-.social.instagram img:hover {
-    transform: translateY(-4px) scale(1.18);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 32px rgba(225, 48, 108, 0.95);
+.social.instagram:hover img {
+    animation: instaCamera 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.75), 
+                0 0 35px rgba(225, 48, 108, 1), 
+                0 0 55px rgba(245, 158, 11, 0.7),
+                0 0 75px rgba(121, 40, 202, 0.5);
+}
+
+@keyframes instaAmbient {
+    0%, 100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(225, 48, 108, 0.35); }
+    50% { box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 24px rgba(245, 158, 11, 0.5); }
+}
+
+@keyframes instaCamera {
+    0% { transform: translateY(-5px) scale(1.18) rotate(0deg); }
+    30% { transform: translateY(-8px) scale(1.22) rotate(-8deg); }
+    70% { transform: translateY(-6px) scale(1.2) rotate(7deg); }
+    100% { transform: translateY(-7px) scale(1.22) rotate(-3deg); }
 }
 
 /* 8. Discord - Gaming Blurple Bounce & Ambient Pulse */
